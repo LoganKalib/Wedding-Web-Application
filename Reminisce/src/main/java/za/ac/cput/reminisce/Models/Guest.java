@@ -3,14 +3,23 @@ package za.ac.cput.reminisce.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Objects;
 
 @Entity
+@Table
 public class Guest {
     @Id
     private long guestId;
-    private String name,surname,email,password;
+    private String name;
+    private String surname;
+    @NotNull
+    private String email;
+    @NotNull
+    private String password;
 
     public Guest(){}
 

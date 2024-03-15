@@ -1,17 +1,23 @@
 package za.ac.cput.reminisce.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Objects;
 
 @Entity
+@Table
 public class Gallery {
     @Id
+    @NotNull
     private long galleryId;
     @ManyToOne
     @JoinColumn(name = "event_id")
+    @NotNull
     private Wedding eventId;
     private String title;
+    @NotNull
     private String path;
 
     public Gallery() {
