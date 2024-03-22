@@ -42,9 +42,13 @@ public class GalleryService implements IGalleryService{
 
     @Override
     public Optional<Gallery> download(Long glryId) {
-        Optional<Gallery> item =  galleryRepository.findById(glryId);
-        item.ifPresent(gallery -> ImageUtil.decompressImage(gallery.getPath()));
-        return item;
+        try{
+            Optional<Gallery> item =  galleryRepository.findById(glryId);
+            item.ifPresent(gallery -> ImageUtil.decompressImage(gallery.getPath()));
+            return item;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
