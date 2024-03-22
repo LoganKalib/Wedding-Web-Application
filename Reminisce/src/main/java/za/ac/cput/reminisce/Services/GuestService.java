@@ -14,7 +14,7 @@ import java.util.List;
 public class GuestService implements IService<Guest,Long> {
     private final IGuestRepository guestRepository;
     @Autowired
-    public GuestService(@Valid IGuestRepository guestRepository) {
+    public GuestService(IGuestRepository guestRepository) {
         this.guestRepository = guestRepository;
     }
 
