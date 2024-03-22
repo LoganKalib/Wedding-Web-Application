@@ -4,14 +4,22 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.multipart.MultipartFile;
 import za.ac.cput.reminisce.Models.Gallery;
+import za.ac.cput.reminisce.Models.Wedding;
 import za.ac.cput.reminisce.Repository.IGalleryRepository;
-import za.ac.cput.reminisce.Services.ServUtils.IService;
+import za.ac.cput.reminisce.Services.ServUtils.IGalleryService;
+import za.ac.cput.reminisce.Utils.ImageUtil;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+import static za.ac.cput.reminisce.Factory.GalleryFactory.buildGallery;
 
 @Service
-public class GalleryService implements IService<Gallery, Long> {
+public class GalleryService implements IGalleryService{
 
     private final IGalleryRepository galleryRepository;
 
@@ -21,13 +29,26 @@ public class GalleryService implements IService<Gallery, Long> {
     }
 
     @Override
-    @Validated
-    public Gallery create(@Valid Gallery obj) {
-        try{
-            return galleryRepository.save(obj);
-        } catch(Exception e){
-            System.out.println("Error: " + e.getLocalizedMessage());
+    public Gallery upload( MultipartFile file, Wedding eventId) {
+        try {
+            return galleryRepository.save(Objects.requireNonNull(buildGallery(eventId,
+                    file.getOriginalFilename(),
+                    ImageUtil.compressImage(file.getBytes())
+            )));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Optional<Gallery> download(Long glryId) {
+        Optional<Gallery> item =  galleryRepository.findById(glryId);
+        item.ifPresent(gallery -> ImageUtil.decompressImage(gallery.getPath()));
+        return item;
+    }
+
+    @Override
+    public Gallery create(Gallery obj) {
         return null;
     }
 

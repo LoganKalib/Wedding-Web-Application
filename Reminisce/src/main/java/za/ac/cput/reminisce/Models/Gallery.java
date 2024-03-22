@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
@@ -18,7 +19,7 @@ public class Gallery {
     private Wedding eventId;
     private String title;
     @NotNull
-    private String path;
+    private byte[] path;
 
     public Gallery() {
     }
@@ -42,7 +43,7 @@ public class Gallery {
         return title;
     }
 
-    public String getPath() {
+    public byte[] getPath() {
         return path;
     }
 
@@ -56,7 +57,7 @@ public class Gallery {
 
     @Override
     public int hashCode() {
-        return Objects.hash(galleryId, eventId, title, path);
+        return Objects.hash(galleryId, eventId, title, Arrays.hashCode(path));
     }
 
     @Override
@@ -65,7 +66,7 @@ public class Gallery {
                 "galleryId=" + galleryId +
                 ", eventId=" + eventId +
                 ", title='" + title + '\'' +
-                ", path='" + path + '\'' +
+                ", path='" + Arrays.toString(path) + '\'' +
                 '}';
     }
 
@@ -73,7 +74,7 @@ public class Gallery {
         private long galleryId;
         private Wedding eventId;
         private String title;
-        private String path;
+        private byte[] path;
 
         public Builder setGalleryId(long galleryId) {
             this.galleryId = galleryId;
@@ -90,7 +91,7 @@ public class Gallery {
             return this;
         }
 
-        public Builder setPath(String path) {
+        public Builder setPath(byte[] path) {
             this.path = path;
             return this;
         }

@@ -131,5 +131,8 @@ public class Wedding {
             this.noOfSeats = obj.noOfSeats;
             return this;
         }
+        public Wedding build(){
+            return new Wedding(this);
+        }
     }
 }
