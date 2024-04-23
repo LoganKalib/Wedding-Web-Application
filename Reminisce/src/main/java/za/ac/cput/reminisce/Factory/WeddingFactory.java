@@ -25,6 +25,7 @@ public class WeddingFactory {
         if(tables > 0 && seats > 0)
             return new Wedding.Builder()
                     .setEventId(BuilderUtil.genId())
+                    .setVenue(venue)
                     .setOrgId(orgId)
                     .setTitle(title)
                     .setDescription(description)

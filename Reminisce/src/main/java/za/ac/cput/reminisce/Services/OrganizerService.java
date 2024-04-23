@@ -41,4 +41,18 @@ public class OrganizerService implements IService<Organizer,Long> {
             throw new RuntimeException(e);
         }
     }
+
+    public Organizer findbyLogin(String email,String password){
+        try{
+            List<Organizer> orgList = (List<Organizer>) organizerRepository.findAll();
+            for(Organizer item: orgList){
+                if(item.getEmail().equalsIgnoreCase(email)
+                        && item.getPassword().equals(password))
+                    return item;
+            }
+            return null;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
