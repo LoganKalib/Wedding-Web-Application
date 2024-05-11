@@ -23,13 +23,13 @@ public class GalleryRestController {
         this.service = service;
     }
 
-//    @PostMapping
-//    public ResponseEntity<?> uploadImage(@RequestParam("image")MultipartFile file){
-//        Wedding eventId = new Wedding.Builder().setEventId(3257046).build();
-//        Gallery item = service.upload(file,eventId);
-//        return ResponseEntity.status(HttpStatus.OK)
-//                .body(item);
-//    }
+    @PostMapping
+    public ResponseEntity<?> uploadImage(@RequestParam("image")MultipartFile file){
+        Wedding eventId = new Wedding.Builder().setEventId(3257046).build();
+        Gallery item = service.upload(file,eventId);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(item);
+    }
 //
 //    @GetMapping("/{id}")
 //    public ResponseEntity<?> downloadImage(@PathVariable Long id){
