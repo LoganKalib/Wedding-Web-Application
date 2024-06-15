@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.sql.Time;
 import java.sql.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,8 +11,8 @@ public class Wedding {
     @Id
     private long eventId;
     @OneToOne
-    @JoinColumn(name = "org_id")
-    private Organizer orgId;
+    @JoinColumn(name = "cust_id")
+    private Customer orgId;
     private String venue, title, description;
     private Date date;
     private Time startTime;
@@ -45,7 +44,7 @@ public class Wedding {
         return eventId;
     }
 
-    public Organizer getOrgId() {
+    public Customer getOrgId() {
         return orgId;
     }
 
@@ -99,7 +98,7 @@ public class Wedding {
 
     public static class Builder{
         private long eventId;
-        private Organizer orgId;
+        private Customer orgId;
         private String venue, title,description;
         private Date date;
         private Time startTime;
@@ -120,7 +119,7 @@ public class Wedding {
             return this;
         }
 
-        public Builder setOrgId(Organizer orgId) {
+        public Builder setOrgId(Customer orgId) {
             this.orgId = orgId;
             return this;
         }

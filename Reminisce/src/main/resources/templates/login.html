@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminisce | Login</title>
+    <!-- Linking to stylesheets -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login-style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/footer-style.css}"/>
+
+    <!-- Linking fonts and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Images/favicons/faviconx16.png" type="image/x-icon">
+</head>
+
+<body>
+<header>
+    <h2 class="logo">Reminisce</h2>
+    <nav class="navbar">
+        <a href="#">About Us</a>
+        <button class="btnLogin-popup">Login</button>
+    </nav>
+</header>
+
+<!-- LOGIN -->
+<div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-circle"></ion-icon>
+        </span>
+
+    <div class="form-box-login">
+        <h2>Login</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+
+            <div class="remember-checkbox">
+                <label>
+                    <input type="checkbox">Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btnLogin">Login</button>
+            <div class="login-register">
+                <p>Dont have an account?<a href="#" class="register-link"> Register</a></p>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- CREATE ACCOUNT -->
+    <div class="form-box-register">
+        <h2>Create Account</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+
+            <div class="remember-checkbox">
+                <label>
+                    <input type="checkbox">I agree to the terms & conditions
+                </label>
+            </div>
+
+            <button type="submit" class="btnLogin">Register</button>
+            <div class="login-register">
+                <p>Already have an account?<a href="#" class="login-link"> Login</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- Footer content -->
+<footer>
+    <div class="footer-text">
+        2024 Reminisce | All Rights Reserved | info@reminisce.co.za | +27 123 456 4658
+    </div>
+
+    <div class="social-icons">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+    </div>
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script th:src="@{/js/login-script.js}"></script>
+</body>
+</html>

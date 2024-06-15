@@ -5,23 +5,23 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Organizer {
+public class Customer {
     @Id
-    private long orgId;
+    private long custId;
     private String name,surname,email,password;
 
-    public Organizer(){}
+    public Customer(){}
 
-    private Organizer(Builder builder){
-        this.orgId = builder.orgId;
+    private Customer(Builder builder){
+        this.custId = builder.custId;
         this.name = builder.name;
         this.surname = builder.surname;
         this.email = builder.email;
         this.password = builder.password;
     }
 
-    public long getOrgId() {
-        return orgId;
+    public long getCustId() {
+        return custId;
     }
 
     public String getName() {
@@ -44,19 +44,19 @@ public class Organizer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Organizer organizer = (Organizer) o;
-        return orgId == organizer.orgId && Objects.equals(name, organizer.name) && Objects.equals(surname, organizer.surname) && Objects.equals(email, organizer.email) && Objects.equals(password, organizer.password);
+        Customer customer = (Customer) o;
+        return custId == customer.custId && Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orgId, name, surname, email, password);
+        return Objects.hash(custId, name, surname, email, password);
     }
 
     @Override
     public String toString() {
-        return "Organizer{" +
-                "orgId=" + orgId +
+        return "Customer{" +
+                "custId=" + custId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
@@ -65,11 +65,11 @@ public class Organizer {
     }
 
     public static class Builder{
-        private long orgId;
+        private long custId;
         private String name,surname,email,password;
 
-        public Builder setOrgId(long orgId) {
-            this.orgId = orgId;
+        public Builder setOrgId(long custId) {
+            this.custId = custId;
             return this;
         }
 
@@ -93,8 +93,8 @@ public class Organizer {
             return this;
         }
 
-        public Builder copy(Organizer obj){
-            this.orgId = obj.orgId;
+        public Builder copy(Customer obj){
+            this.custId = obj.custId;
             this.name = obj.name;
             this.surname = obj.surname;
             this.email = obj.email;
@@ -102,8 +102,8 @@ public class Organizer {
             return this;
         }
 
-        public Organizer build(){
-            return new Organizer(this);
+        public Customer build(){
+            return new Customer(this);
         }
     }
 }

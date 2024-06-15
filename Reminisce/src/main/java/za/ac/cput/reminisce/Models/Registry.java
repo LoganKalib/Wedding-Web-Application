@@ -12,8 +12,8 @@ public class Registry {
     @JoinColumn(name = "event_id")
     private Wedding eventId;
     @OneToOne
-    @JoinColumn(name = "guest_id")
-    private Guest guestId;
+    @JoinColumn(name = "customer_id")
+    private Customer custId;
     private String title, link, status;
     private float price;
 
@@ -22,7 +22,7 @@ public class Registry {
     private Registry(Builder builder){
         this.registryId = builder.registryId;
         this.eventId = builder.eventId;
-        this.guestId = builder.guestId;
+        this.custId = builder.custId;
         this.title = builder.title;
         this.link = builder.link;
         this.status = builder.status;
@@ -37,8 +37,8 @@ public class Registry {
         return eventId;
     }
 
-    public Guest getGuestId() {
-        return guestId;
+    public Customer getCustId() {
+        return custId;
     }
 
     public String getTitle() {
@@ -62,12 +62,12 @@ public class Registry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Registry registry = (Registry) o;
-        return registryId == registry.registryId && Float.compare(price, registry.price) == 0 && Objects.equals(eventId, registry.eventId) && Objects.equals(guestId, registry.guestId) && Objects.equals(title, registry.title) && Objects.equals(link, registry.link) && Objects.equals(status, registry.status);
+        return registryId == registry.registryId && Float.compare(price, registry.price) == 0 && Objects.equals(eventId, registry.eventId) && Objects.equals(custId, registry.custId) && Objects.equals(title, registry.title) && Objects.equals(link, registry.link) && Objects.equals(status, registry.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(registryId, eventId, guestId, title, link, status, price);
+        return Objects.hash(registryId, eventId, custId, title, link, status, price);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class Registry {
         return "Registry{" +
                 "registryId=" + registryId +
                 ", eventId=" + eventId +
-                ", guestId=" + guestId +
+                ", custId=" + custId +
                 ", title='" + title + '\'' +
                 ", link='" + link + '\'' +
                 ", status='" + status + '\'' +
@@ -86,7 +86,7 @@ public class Registry {
     public static class Builder{
         private long registryId;
         private Wedding eventId;
-        private Guest guestId;
+        private Customer custId;
         private String title, link, status;
         private float price;
 
@@ -100,8 +100,8 @@ public class Registry {
             return this;
         }
 
-        public Builder setGuestId(Guest guestId) {
-            this.guestId = guestId;
+        public Builder setCustId(Customer custId) {
+            this.custId = custId;
             return this;
         }
 
@@ -128,7 +128,7 @@ public class Registry {
         public Builder copy(Registry obj) {
             this.registryId = obj.registryId;
             this.eventId = obj.eventId;
-            this.guestId = obj.guestId;
+            this.custId = obj.custId;
             this.title = obj.title;
             this.link = obj.link;
             this.status = obj.status;

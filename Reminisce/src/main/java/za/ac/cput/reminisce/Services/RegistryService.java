@@ -2,7 +2,6 @@ package za.ac.cput.reminisce.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.reminisce.Models.Organizer;
 import za.ac.cput.reminisce.Models.Registry;
 import za.ac.cput.reminisce.Repository.IRegistryRepository;
 import za.ac.cput.reminisce.Services.ServUtils.IService;
