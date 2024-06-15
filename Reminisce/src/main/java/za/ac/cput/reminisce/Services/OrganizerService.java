@@ -2,19 +2,19 @@ package za.ac.cput.reminisce.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.reminisce.Models.Organizer;
-import za.ac.cput.reminisce.Repository.IOrganizerRepository;
+import za.ac.cput.reminisce.Models.Customer;
+import za.ac.cput.reminisce.Repository.ICustomerRepository;
 import za.ac.cput.reminisce.Services.ServUtils.IService;
 
 import java.util.List;
 
 @Service
-public class OrganizerService implements IService<Organizer,Long> {
+public class OrganizerService implements IService<Customer,Long> {
     @Autowired
-    private IOrganizerRepository organizerRepository;
+    private ICustomerRepository organizerRepository;
 
     @Override
-    public Organizer create(Organizer obj) {
+    public Customer create(Customer obj) {
         try{
             return organizerRepository.save(obj);
         } catch (Exception e) {
@@ -23,29 +23,29 @@ public class OrganizerService implements IService<Organizer,Long> {
     }
 
     @Override
-    public List<Organizer> read(List<Long> id) {
+    public List<Customer> read(List<Long> id) {
         try{
-            return (List<Organizer>) organizerRepository.findAllById(id);
+            return (List<Customer>) organizerRepository.findAllById(id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public boolean delete(Organizer obj) {
+    public boolean delete(Customer obj) {
         try{
-            if(organizerRepository.existsById(obj.getOrgId()))
+            if(organizerRepository.existsById(obj.getCustId()))
                 organizerRepository.delete(obj);
-            return !organizerRepository.existsById(obj.getOrgId());
+            return !organizerRepository.existsById(obj.getCustId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Organizer findbyLogin(String email,String password){
+    public Customer findbyLogin(String email, String password){
         try{
-            List<Organizer> orgList = (List<Organizer>) organizerRepository.findAll();
-            for(Organizer item: orgList){
+            List<Customer> orgList = (List<Customer>) organizerRepository.findAll();
+            for(Customer item: orgList){
                 if(item.getEmail().equalsIgnoreCase(email)
                         && item.getPassword().equals(password))
                     return item;

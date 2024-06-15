@@ -1,0 +1,172 @@
+
+.container {
+    scroll-snap-type: Y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+section {
+    height: 100vh;
+    /*display: flex;*/
+
+    /*align-items: center;*/
+    scroll-snap-align: start;
+}
+
+.content {
+    background: url('../Images/home-background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 120px;
+    align-items: center;
+    /* chad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content h1 {
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 337;
+    font-style: normal;
+    text-shadow: 1px 1px 4px black;
+    text-align: center;
+    font-size: 50px;
+    padding-top:50px;
+    padding-bottom: 50px;
+
+}
+
+.content p {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 337;
+    font-style: normal;
+    padding: 40px;
+}
+
+.about {
+    background: url('../Images/greymarble.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 120px;
+}
+
+.about h1 {
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 337;
+    font-style: normal;
+    text-shadow: 1px 1px 4px black;
+    text-align: center;
+    font-size: 50px;
+    padding-top:50px;
+    padding-bottom: 50px;
+
+}
+
+.about p {
+    text-align: left;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 337;
+    font-style: normal;
+    padding-left: 40px;
+}
+
+.about img{
+    float: right;
+    padding-left: 40px;
+    padding-right:40px;
+    padding-bottom: 10px;
+}
+
+.events {
+    background: url('../Images/home-background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 120px;
+    align-items: center;
+    /* chad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.events h1{
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 337;
+    font-style: normal;
+    text-shadow: 1px 1px 4px black;
+    text-align: center;
+    font-size: 50px;
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+
+/* BUTTONS */
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+}
+
+/* button fill transition */
+span {
+    background: #ffffff;
+    height: 100%;
+    width: 0%;
+    border-radius: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+    color: #000;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #282a2e;
+    /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    /* Thumb color */
+    border-radius: 15px;
+    /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5e648d;
+    /* Hover color */
+}

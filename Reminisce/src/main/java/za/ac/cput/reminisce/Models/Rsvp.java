@@ -12,8 +12,8 @@ public class Rsvp {
     @Id
     private long rsvpId;
     @ManyToOne
-    @JoinColumn(name = "guest_id")
-    private Guest guestId;
+    @JoinColumn(name = "customer_id")
+    private Customer custId;
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Wedding eventId;
@@ -23,15 +23,15 @@ public class Rsvp {
     private Rsvp(Builder builder){
         this.rsvpId = builder.rsvpId;
         this.eventId = builder.eventId;
-        this.guestId = builder.guestId;
+        this.custId = builder.custId;
     }
 
     public long getRsvpId() {
         return rsvpId;
     }
 
-    public Guest getGuestId() {
-        return guestId;
+    public Customer getCustId() {
+        return custId;
     }
 
     public Wedding getEventId() {
@@ -43,26 +43,26 @@ public class Rsvp {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rsvp rsvp = (Rsvp) o;
-        return rsvpId == rsvp.rsvpId && Objects.equals(guestId, rsvp.guestId) && Objects.equals(eventId, rsvp.eventId);
+        return rsvpId == rsvp.rsvpId && Objects.equals(custId, rsvp.custId) && Objects.equals(eventId, rsvp.eventId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rsvpId, guestId, eventId);
+        return Objects.hash(rsvpId, custId, eventId);
     }
 
     @Override
     public String toString() {
         return "Rsvp{" +
                 "rsvpId=" + rsvpId +
-                ", guestId=" + guestId +
+                ", custId=" + custId +
                 ", eventId=" + eventId +
                 '}';
     }
 
     public static class Builder{
         private long rsvpId;
-        private Guest guestId;
+        private Customer custId;
         private Wedding eventId;
 
         public Builder setRsvpId(long rsvpId) {
@@ -70,8 +70,8 @@ public class Rsvp {
             return this;
         }
 
-        public Builder setGuestId(Guest guestId) {
-            this.guestId = guestId;
+        public Builder setCustId(Customer custId) {
+            this.custId = custId;
             return this;
         }
 
@@ -83,7 +83,7 @@ public class Rsvp {
         public Builder copy(Rsvp obj){
             this.rsvpId = obj.rsvpId;
             this.eventId = obj.eventId;
-            this.guestId = obj.guestId;
+            this.custId = obj.custId;
             return this;
         }
 

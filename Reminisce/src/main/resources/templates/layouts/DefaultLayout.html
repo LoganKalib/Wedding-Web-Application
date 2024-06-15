@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Linking to stylesheets -->
+    <link rel="stylesheet" th:href="@{/css/navbar-style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/footer-style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/home-style.css}" type="text/css">
+
+    <!-- Linking fonts and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../static/Images/favicons/faviconx16.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{layouts/CommonHeader :: header}"> Header will go here...</div>
+
+<section layout:fragment="content">
+    <p>put content here </p>
+</section>
+
+<div th:replace="~{layouts/CommonFooter :: footer}"> Footer will go here...</div>
+
+</body>
+</html>
