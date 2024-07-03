@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-@Table
 public class Gallery {
     @Id
     @NotNull
