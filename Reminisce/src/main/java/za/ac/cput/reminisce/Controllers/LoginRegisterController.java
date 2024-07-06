@@ -27,7 +27,7 @@ public class LoginRegisterController {
     }
 
 
-    @GetMapping("/page")
+    @GetMapping("/")
     public String displayLogin(Model model){
         model.addAttribute("loginModel",new loginModel());
         model.addAttribute("registerModel", new registerModel());
