@@ -15,17 +15,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <link rel="icon" href="../Images/favicons/faviconx16.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <header>
     <h2 class="logo">Reminisce</h2>
     <nav class="navbar">
-        <a href="#">About Us</a>
+        <a href="../About Us Page/about.html">About Us</a>
+        <a href="../Contact Us/contact.html">Contact Us</a>
         <button class="btnLogin-popup">Login</button>
     </nav>
 </header>
 
+<section class="content">
+    <div>
+        <h1>CRAFTING TIMELESS MEMORIES,<br>TOGETHER</h1>
+        <br>
+    </div>
+    <p>Welcome to Reminisce, your personalized platform
+        for creating and cherishing memorable wedding experiences
+    </p>
+
+</section>
 <!-- LOGIN -->
 <div class="wrapper">
         <span class="icon-close">
@@ -48,9 +61,7 @@
             </div>
 
             <div class="remember-checkbox">
-                <label>
-                    <input type="checkbox">Remember me
-                </label>
+
                 <a href="#">Forgot Password?</a>
             </div>
 
@@ -71,6 +82,7 @@
                 <input type="text" required th:field="*{name}">
                 <label>Name</label>
             </div>
+
             <div class="input-box">
                 <span class="icon"><ion-icon name="person"></ion-icon></span>
                 <input type="text" required th:field="*{surname}">
@@ -91,13 +103,13 @@
 
             <div class="remember-checkbox">
                 <label>
-                    <input type="checkbox" checked>I agree to the terms & conditions
+                    <input type="checkbox"><a href="../T's & C's/tandc.html">I agree to the terms & conditions</a>
                 </label>
             </div>
 
             <button type="submit" class="btnLogin">Register</button>
             <div class="login-register">
-                <p>Already have an account?<a href="#" class="login-link"> Login</a></p>
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
             </div>
         </form>
     </div>
@@ -107,7 +119,7 @@
 <!-- Footer content -->
 <footer>
     <div class="footer-text">
-        2024 Reminisce | All Rights Reserved | info@reminisce.co.za | +27 123 456 4658
+        &copy;2024 Reminisce | All Rights Reserved
     </div>
 
     <div class="social-icons">
