@@ -1,104 +1,49 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Body styling */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.3) url('../Images/ring1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    overflow: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Container styling */
 .container {
-    scroll-snap-type: Y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
+    width: 100%;
+    flex: 1;
+    overflow: hidden; /* Hide scrollbars */
 }
 
+/* Section styling */
 section {
-    height: 100vh;
-    /*display: flex;*/
-
-    /*align-items: center;*/
-    scroll-snap-align: start;
-}
-
-.content {
-    background: url('../Images/home-background.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-top: 120px;
-    align-items: center;
-    /* chad */
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.content h1 {
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 337;
-    font-style: normal;
-    text-shadow: 1px 1px 4px black;
-    text-align: center;
-    font-size: 50px;
-    padding-top:50px;
-    padding-bottom: 50px;
-
-}
-
-.content p {
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 20px;
-    font-weight: 337;
-    font-style: normal;
-    padding: 40px;
-}
-
-.about {
-    background: url('../Images/greymarble.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-top: 120px;
-}
-
-.about h1 {
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 337;
-    font-style: normal;
-    text-shadow: 1px 1px 4px black;
-    text-align: center;
-    font-size: 50px;
-    padding-top:50px;
-    padding-bottom: 50px;
-
-}
-
-.about p {
-    text-align: left;
-    color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 22px;
-    font-weight: 337;
-    font-style: normal;
-    padding-left: 40px;
-}
-
-.about img{
-    float: right;
-    padding-left: 40px;
-    padding-right:40px;
-    padding-bottom: 10px;
-}
-
+/* Content styling */
 .events {
-    background: url('../Images/home-background.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-top: 120px;
-    align-items: center;
-    /* chad */
+    background:rgba(0, 0, 0, 0.5);;
+    padding: 120px 20px 20px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-.events h1{
+.events h1 {
     color: white;
     font-family: "Josefin Sans", sans-serif;
     font-weight: 337;
@@ -106,12 +51,10 @@ section {
     text-shadow: 1px 1px 4px black;
     text-align: center;
     font-size: 50px;
-    padding-top:50px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
-/* BUTTONS */
-button {
+.events button {
     width: 200px;
     padding: 15px 0;
     text-align: center;
@@ -125,11 +68,10 @@ button {
     position: relative;
     overflow: hidden;
     z-index: 0;
-
 }
 
-/* button fill transition */
-span {
+/* Button fill transition */
+.events button span {
     background: #ffffff;
     height: 100%;
     width: 0%;
@@ -141,32 +83,105 @@ span {
     transition: 0.3s;
 }
 
-button:hover span {
+h2{
+    color: rgb(255, 255, 255);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+.popup-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popup input[type="text"],
+.popup button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.popup button {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    padding: 12px 20px; /* Padding for better visual appearance */
+    font-size: 16px; /* Adjust font size as needed */
+    font-family: "Josefin Sans", sans-serif; /* Apply Josefin Sans font */
+}
+
+.popup button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+
+.events button:hover span {
     width: 100%;
 }
 
-button:hover {
+.events button:hover {
     border: none;
     color: #000;
 }
 
-::-webkit-scrollbar {
-    width: 10px;
+/* Hide scrollbars */
+body::-webkit-scrollbar {
+    display: none;
 }
 
-::-webkit-scrollbar-track {
-    background: #282a2e;
-    /* Track color */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa; /* Color of the 'x' */
 }
 
-::-webkit-scrollbar-thumb {
-    background: #ffffff;
-    /* Thumb color */
-    border-radius: 15px;
-    /* Rounded corners */
+.close:hover,
+.close:focus {
+    color: #000; /* Darker color on hover or focus */
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #5e648d;
-    /* Hover color */
-}
