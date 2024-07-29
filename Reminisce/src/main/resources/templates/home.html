@@ -33,7 +33,9 @@
     <section class="events">
         <h1>YOUR EVENTS</h1>
         <div>
-            <button type="button" th:onclick="@{manageEvent}"><span></span>MANAGE YOUR EVENT</button>
+            <form th:action="@{manageEvent}" method="get">
+                <button type="submit"><span></span>MANAGE YOUR EVENT</button>
+            </form>
             <button type="button" onclick="openSearchPopup()"><span></span>SEARCH EVENT</button>
 
         </div>

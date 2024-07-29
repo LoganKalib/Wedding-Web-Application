@@ -211,50 +211,50 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
-<!--<script>-->
-<!--    document.addEventListener('DOMContentLoaded', function () {-->
-<!--        var map = L.map('map').setView([51.505, -0.09], 13);-->
+<script>
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var map = L.map('map').setView([51.505, -0.09], 13);
+    //
+    //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    //     }).addTo(map);
+    //
+    //     var geocoder = L.Control.Geocoder.nominatim();
+    //     var control = L.Control.geocoder({
+    //         query: '',
+    //         placeholder: 'Search for a place...',
+    //         defaultMarkGeocode: false
+    //     }).addTo(map);
+    //
+    //     control.on('markgeocode', function (e) {
+    //         var latlng = e.geocode.center;
+    //         var address = e.geocode.name;
+    //         var addressComponents = e.geocode.properties.address;
+    //         var detailedAddress = [
+    //             addressComponents.road || '',
+    //             addressComponents.neighbourhood || '',
+    //             addressComponents.suburb || '',
+    //             addressComponents.city || addressComponents.town || '',
+    //             addressComponents.state || '',
+    //             addressComponents.country || ''
+    //         ].filter(Boolean).join(', ');
+    //
+    //         document.getElementById('venue-address').value = detailedAddress;
+    //         map.setView(latlng, map.getZoom());
+    //         L.marker(latlng).addTo(map)
+    //             .bindPopup(detailedAddress)
+    //             .openPopup();
+    //     });
+    // });
 
-<!--        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {-->
-<!--            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'-->
-<!--        }).addTo(map);-->
-
-<!--        var geocoder = L.Control.Geocoder.nominatim();-->
-<!--        var control = L.Control.geocoder({-->
-<!--            query: '',-->
-<!--            placeholder: 'Search for a place...',-->
-<!--            defaultMarkGeocode: false-->
-<!--        }).addTo(map);-->
-
-<!--        control.on('markgeocode', function (e) {-->
-<!--            var latlng = e.geocode.center;-->
-<!--            var address = e.geocode.name;-->
-<!--            var addressComponents = e.geocode.properties.address;-->
-<!--            var detailedAddress = [-->
-<!--                addressComponents.road || '',-->
-<!--                addressComponents.neighbourhood || '',-->
-<!--                addressComponents.suburb || '',-->
-<!--                addressComponents.city || addressComponents.town || '',-->
-<!--                addressComponents.state || '',-->
-<!--                addressComponents.country || ''-->
-<!--            ].filter(Boolean).join(', ');-->
-
-<!--            document.getElementById('venue-address').value = detailedAddress;-->
-<!--            map.setView(latlng, map.getZoom());-->
-<!--            L.marker(latlng).addTo(map)-->
-<!--                .bindPopup(detailedAddress)-->
-<!--                .openPopup();-->
-<!--        });-->
-<!--    });-->
-
-<!--    function loadContent(section) {-->
-<!--        const sections = document.getElementsByClassName('content-section');-->
-<!--        for (let i = 0; i < sections.length; i++) {-->
-<!--            sections[i].style.display = 'none';-->
-<!--        }-->
-<!--        document.getElementById(section + '-content').style.display = 'block';-->
-<!--    }-->
-<!--</script>-->
+    function loadContent(section) {
+        const sections = document.getElementsByClassName('content-section');
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
+        }
+        document.getElementById(section + '-content').style.display = 'block';
+    }
+</script>
 </body>
 </html>
 

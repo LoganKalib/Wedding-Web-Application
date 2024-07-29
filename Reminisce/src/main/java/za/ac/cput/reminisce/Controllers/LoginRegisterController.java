@@ -13,7 +13,7 @@ import za.ac.cput.reminisce.Models.RequestModels.registerModel;
 import za.ac.cput.reminisce.Services.CustomerService;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/")
 public class LoginRegisterController {
 
     private CustomerService customerService;
@@ -25,7 +25,7 @@ public class LoginRegisterController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String displayLogin(Model model){
         model.addAttribute("loginModel",new loginModel());
         model.addAttribute("registerModel", new registerModel());
@@ -72,7 +72,7 @@ public class LoginRegisterController {
         return "home";
     }
 
-    @PostMapping("manageEvent")
+    @GetMapping("manageEvent")
     public String displayManageEvent(loginModel loginModel){
         System.out.println(loginModel);
         return "manage-events";
