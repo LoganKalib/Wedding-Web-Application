@@ -174,7 +174,7 @@
         </div>
 
         <div id="view-rsvp-content" class="content-section" style="display: none;">
-            <h2>Track Events</h2>
+            <h2 class="track-event-heading">Track RSVPs</h2>
             <button class="event-btn" onclick="showEventDetails('John & Sarah')">John + Sarah</button>
 
             <!-- Button Modal -->
@@ -190,7 +190,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -206,7 +208,7 @@
     function showEventDetails(eventTitle) {
         document.getElementById('event-title').innerText = eventTitle;
         var modal = document.getElementById("eventModal");
-        modal.style.display = "block";
+        modal.style.display = "inline-block";
     }
 
     // Get the modal
