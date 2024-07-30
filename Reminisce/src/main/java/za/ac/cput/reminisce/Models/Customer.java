@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long custId;
     private String name,surname,email,password;
 

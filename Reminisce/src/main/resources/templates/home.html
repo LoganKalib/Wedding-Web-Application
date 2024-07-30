@@ -1,43 +1,85 @@
 <!DOCTYPE html>
-<html lang="en" layout:decorate="layouts/DefaultLayout">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminisce | Events</title>
+    <!-- Linking to stylesheets -->
+    <link rel="stylesheet" th:href="@{/css/navbar-style.css}">
+    <link rel="stylesheet" th:href="@{/css/footer-style.css}">
+    <link rel="stylesheet" th:href="@{/css/home-style.css}">
+
+    <!-- Linking fonts and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Images/favicons/faviconx16.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+</head>
+
 <body>
-<div class="container" layout:fragment="content">
-    <section class="content">
-        <div><h1>CRAFTING TIMELESS MEMORIES,<br>TOGETHER</h1>
-        </div>
-        <p>Welcome to Reminisce, your personalized platform
-            for creating and cherishing memorable wedding experiences
-        </p>
+<header>
+    <h2 class="logo">Reminisce</h2>
+    <nav class="navbar">
 
-        <div>
-            <button type="button"><span></span>MANAGE YOUR EVENT</button>
-            <button type="button"><span></span>SEARCH EVENT</button>
-        </div>
-    </section>
+        <a th:href="@{/login/}">Sign Out</a>
+    </nav>
+</header>
 
-    <section class="about">
-        <div><h1>ABOUT US</h1></div>
-
-        <div><img th:src="@{/Images/background.jpg}" alt="Background Image" width="450" height="250">
-            <p>Welcome to Reminisce, your personalized platform for creating and cherishing memorable wedding experiences.
-                <br><br>Dive into our digital haven, where organizing your dream wedding is as effortless as a gentle breeze.
-                <br><br>With Reminisce, you can effortlessly organize every aspect of your special day, from event creation
-                to guest management and beyond.
-                Whether you're an event organizer crafting the perfect celebration or a guest eagerly anticipating the
-                festivities, our intuitive interface ensures a seamless journey.
-                <br><br>Explore our array of features, including RSVP management, menu customization, and photo gallery
-                uploads, designed to capture and preserve every precious moment. Join us on Reminisce, where every detail
-                matters and memories last a lifetime.
-            </p></div>
-
-    </section>
+<div class="container">
     <section class="events">
         <h1>YOUR EVENTS</h1>
         <div>
-            <button type="button"><span></span>MANAGE YOUR EVENT</button>
-            <button type="button"><span></span>SEARCH EVENT</button>
+            <form th:action="@{manageEvent}" method="get">
+                <button type="submit"><span></span>MANAGE YOUR EVENT</button>
+            </form>
+            <button type="button" onclick="openSearchPopup()"><span></span>SEARCH EVENT</button>
+
         </div>
     </section>
 </div>
+<!-- HTML for the Search Event Popup -->
+<div id="searchPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Search Event</h2>
+        <input type="text" id="eventId" placeholder="Enter Event ID">
+        <button onclick="searchEvent()">Search</button>
+    </div>
+</div>
+
+<!-- HTML for the Search Result Popup -->
+<div id="searchResultPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Event Details</h2>
+        <div id="searchResult"></div>
+        <button onclick="rsvp()">RSVP</button>
+        <button onclick="backToSearch()">Back to Search</button>
+    </div>
+</div>
+
+
+<!-- Footer content-->
+<footer>
+    <div class="footer-text">
+        &copy;2024 Reminisce | All Rights Reserved
+    </div>
+
+    <div class="social-icons">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+    </div>
+</footer>
+
+<!-- Linking the JavaScript file -->
+<script th:src="@{/js/home-script.js}"></script>
 </body>
+
 </html>

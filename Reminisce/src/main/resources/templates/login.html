@@ -15,17 +15,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <link rel="icon" href="../Images/favicons/faviconx16.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <header>
     <h2 class="logo">Reminisce</h2>
     <nav class="navbar">
-        <a href="#">About Us</a>
+        <a th:href="@{about}">About Us</a>
+        <a th:href="@{contact}">Contact Us</a>
         <button class="btnLogin-popup">Login</button>
     </nav>
 </header>
 
+<section class="content">
+    <div>
+        <h1>CRAFTING TIMELESS MEMORIES,<br>TOGETHER</h1>
+        <br>
+    </div>
+    <p>Welcome to Reminisce, your personalized platform
+        for creating and cherishing memorable wedding experiences
+    </p>
+
+</section>
 <!-- LOGIN -->
 <div class="wrapper">
         <span class="icon-close">
@@ -34,23 +47,21 @@
 
     <div class="form-box-login">
         <h2>Login</h2>
-        <form action="#">
+        <form action="#" method="post" th:action="@{processLogin}" th:object="${loginModel}">
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" required>
+                <input type="email" required th:field="*{email}">
                 <label>Email</label>
             </div>
 
             <div class="input-box">
                 <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" required>
+                <input type="password" required th:field="*{password}">
                 <label>Password</label>
             </div>
 
             <div class="remember-checkbox">
-                <label>
-                    <input type="checkbox">Remember me
-                </label>
+
                 <a href="#">Forgot Password?</a>
             </div>
 
@@ -65,34 +76,40 @@
     <!-- CREATE ACCOUNT -->
     <div class="form-box-register">
         <h2>Create Account</h2>
-        <form action="#">
+        <form action="#" method="post" th:action="@{processRegistration}" th:object="${registerModel}">
             <div class="input-box">
                 <span class="icon"><ion-icon name="person"></ion-icon></span>
-                <input type="text" required>
-                <label>Username</label>
+                <input type="text" required th:field="*{name}">
+                <label>Name</label>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                <input type="text" required th:field="*{surname}">
+                <label>Surname</label>
             </div>
 
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" required>
+                <input type="email" required th:field="*{email}">
                 <label>Email</label>
             </div>
 
             <div class="input-box">
                 <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" required>
+                <input type="password" required th:field="*{password}">
                 <label>Password</label>
             </div>
 
             <div class="remember-checkbox">
                 <label>
-                    <input type="checkbox">I agree to the terms & conditions
+                    <input type="checkbox"><a href="../T's & C's/tandc.html">I agree to the terms & conditions</a>
                 </label>
             </div>
 
             <button type="submit" class="btnLogin">Register</button>
             <div class="login-register">
-                <p>Already have an account?<a href="#" class="login-link"> Login</a></p>
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
             </div>
         </form>
     </div>
@@ -102,7 +119,7 @@
 <!-- Footer content -->
 <footer>
     <div class="footer-text">
-        2024 Reminisce | All Rights Reserved | info@reminisce.co.za | +27 123 456 4658
+        &copy;2024 Reminisce | All Rights Reserved
     </div>
 
     <div class="social-icons">
