@@ -16,8 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <link rel="icon" th:href="@{/Images/favicons/faviconx16.png}" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
 
     <!-- Leaflet CSS -->
@@ -25,6 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 
+<body>
 <header>
     <h2 class="logo">Reminisce</h2>
     <nav class="navbar">
@@ -33,7 +33,6 @@
     </nav>
 </header>
 
-<body>
 <div class="container">
     <div class="sidebar" id="sidebar">
         <button onclick="loadContent('create-event')" data-section="create-event">Create Event</button>
@@ -95,7 +94,7 @@
                         </div>
                     </div>
 
-<!--                    <div id="map" style="height: 100px;"></div>-->
+                    <!--                    <div id="map" style="height: 100px;"></div>-->
 
                     <!-- MENU DETAILS -->
                     <div class="menu-box">
@@ -173,67 +172,29 @@
                 </form>
             </div>
         </div>
+
+        <div id="view-rsvp-content" class="content-section" style="display: none;">
+            <h2>Track Events</h2>
+            <button class="event-btn" onclick="showEventDetails('John & Sarah')">John + Sarah</button>
+
+            <!-- Button Modal -->
+            <div id="eventModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="event-title">John & Sarah</h2>
+                    <div id="event-details">
+                        <p><strong>Venue:</strong> Example Venue</p>
+                        <p><strong>Date:</strong> 2023-07-30</p>
+                        <p><strong>Time:</strong> 14:00</p>
+                        <p><strong>Venue Address:</strong> 123 Main St, Example City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    <div id="view-rsvp-content" class="content-section" style="display: none;">
-            <h2>View RSVP</h2>
-            <p>RSVP details will go here.</p>
-        </div>
-        <div id="edit-event-content" class="content-section" style="display: none;">
-            <h2>Edit Event</h2>
-            <p>Edit Event form will go here</p>
-        </div>
-        <div id="view-gallery-content" class="content-section" style="display: none;">
-            <h2>View Gallery</h2>
-            <p>Gallery content will go here.</p>
-        </div>
-    </div>
-
 </div>
 
-
-
-<!-- Leaflet JavaScript -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
 <script>
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     var map = L.map('map').setView([51.505, -0.09], 13);
-    //
-    //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    //     }).addTo(map);
-    //
-    //     var geocoder = L.Control.Geocoder.nominatim();
-    //     var control = L.Control.geocoder({
-    //         query: '',
-    //         placeholder: 'Search for a place...',
-    //         defaultMarkGeocode: false
-    //     }).addTo(map);
-    //
-    //     control.on('markgeocode', function (e) {
-    //         var latlng = e.geocode.center;
-    //         var address = e.geocode.name;
-    //         var addressComponents = e.geocode.properties.address;
-    //         var detailedAddress = [
-    //             addressComponents.road || '',
-    //             addressComponents.neighbourhood || '',
-    //             addressComponents.suburb || '',
-    //             addressComponents.city || addressComponents.town || '',
-    //             addressComponents.state || '',
-    //             addressComponents.country || ''
-    //         ].filter(Boolean).join(', ');
-    //
-    //         document.getElementById('venue-address').value = detailedAddress;
-    //         map.setView(latlng, map.getZoom());
-    //         L.marker(latlng).addTo(map)
-    //             .bindPopup(detailedAddress)
-    //             .openPopup();
-    //     });
-    // });
-
     function loadContent(section) {
         const sections = document.getElementsByClassName('content-section');
         for (let i = 0; i < sections.length; i++) {
@@ -241,7 +202,31 @@
         }
         document.getElementById(section + '-content').style.display = 'block';
     }
+
+    function showEventDetails(eventTitle) {
+        document.getElementById('event-title').innerText = eventTitle;
+        var modal = document.getElementById("eventModal");
+        modal.style.display = "block";
+    }
+
+    // Get the modal
+    var modal = document.getElementById("eventModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 </body>
-</html>
 
+</html>
