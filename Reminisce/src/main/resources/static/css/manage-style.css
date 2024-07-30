@@ -337,6 +337,7 @@ header nav a {
         width: 80%;
         max-width: 500px;
         border-radius: 10px;
+        transform: translate(20%);
     }
 
     .track-event-heading {
