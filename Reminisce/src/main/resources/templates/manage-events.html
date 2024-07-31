@@ -176,10 +176,12 @@
         <!--View RSVPs-->
         <div id="view-rsvp-content" class="content-section" style="display: none;">
             <h2 class="track-event-heading">Track RSVPs</h2>
+
+            <!-- Button for John & Sarah -->
             <button class="event-btn" onclick="showEventDetails('John & Sarah')">John + Sarah</button>
 
-            <!-- RSVP button Modal -->
-            <div id="eventModal" class="modal">
+            <!-- RSVP Modal for John & Sarah -->
+            <div id="eventModalJohnSarah" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2 id="event-title">John & Sarah</h2>
@@ -214,7 +216,44 @@
                 </div>
             </div>
 
+            <!-- Button for Barry & Vanessa -->
+            <button class="event-btn" onclick="showEventDetails('Barry & Vanessa')">Barry + Vanessa</button>
 
+            <!-- RSVP Modal for Barry & Vanessa -->
+            <div id="eventModalBarryVanessa" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="event-title">Barry & Vanessa</h2>
+                    <div id="event-details">
+                        <table>
+                            <tr>
+                                <th>Venue</th>
+                                <td>DIE Woud</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>2023-03-20</td>
+                            </tr>
+                            <tr>
+                                <th>Time</th>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <th>Venue Address</th>
+                                <td>4th Avenue, Bereaville Caledon, Cape Town</td>
+                            </tr>
+                            <tr>
+                                <th>Seating</th>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th>Wedding Color</th>
+                                <td style="background-color: goldenrod; color: #fefefe; text-align: center"><strong>Golden Rod</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -229,27 +268,21 @@
         document.getElementById(section + '-content').style.display = 'block';
     }
 
-    function showEventDetails(eventTitle) {
-        document.getElementById('event-title').innerText = eventTitle;
-        var modal = document.getElementById("eventModal");
-        modal.style.display = "inline-block";
-    }
+    function showEventDetails(couple) {
+        let modalId = couple === 'John & Sarah' ? 'eventModalJohnSarah' : 'eventModalBarryVanessa';
+        let modal = document.getElementById(modalId);
+        modal.style.display = "block";
 
-    // Get the modal
-    var modal = document.getElementById("eventModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on x icon, close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        // Close the modal when the user clicks on <span> (x)
+        modal.querySelector('.close').onclick = function() {
             modal.style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     }
 </script>
