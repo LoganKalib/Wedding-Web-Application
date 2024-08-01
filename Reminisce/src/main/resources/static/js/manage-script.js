@@ -7,6 +7,7 @@ function loadContent(section) {
     document.getElementById(section + '-content').style.display = 'block';
 }
 
+// Hard coded couple values. Displays teh details for RSVP
 function showEventDetails(couple) {
     let modalId = couple === 'John & Sarah' ? 'eventModalJohnSarah' : 'eventModalBarryVanessa';
     let modal = document.getElementById(modalId);
