@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reminisce | Contact Us</title>
     <!-- Linking to stylesheets -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar-style.css}">
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/about-style.css}">
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/footer-style.css}">
+    <link rel="stylesheet" type="text/css" href="css/navbar-style.css">
+    <link rel="stylesheet" type="text/css" href="css/contact-style.css">
+    <link rel="stylesheet" type="text/css" href="css/footer-style.css">
     <!-- Linking fonts and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
-    <link rel="icon" th:href="@{/Images/favicons/faviconx16.png}" type="image/x-icon">
+    <link rel="icon" href="Images/favicons/faviconx16.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
 </head>
@@ -21,23 +21,40 @@
 <header>
     <h2 class="logo">Reminisce</h2>
     <nav class="navbar">
-        <a th:href="@{about}">About Us</a>
+        <a href="about.html">About Us</a>
         <a href="#" style="font-weight: bolder">Contact Us</a>
-        <a th:href="@{/login/}">Login</a>
+        <a href="login.html">Login</a>
     </nav>
 </header>
 
 <div class="container">
-    <section class="about">
+    <div class="contact-left">
         <h1>CONTACT US</h1>
-        <p>
+    </div>
+    <section class="contact-right">
+        <p1>
             For more information please see our contact details below or feel free to reach out through any of our social media platforms (see links below).
-            <br><br>___________________________________________________________<br><br>
-            General Email: <a href="mailto:info@reminisce.co.za">info@reminisce.co.za</a><br><br>
-            Support Email: <a href="mailto:support@reminisce.co.za">support@reminisce.co.za</a><br><br>
-            Phone: +27 (081) 456-7890<br><br>
-            Fax: +27 (081) 654-3210
-        </p>
+        </p1>
+        <div class="contact-details">
+            <table>
+                <tr>
+                    <td>General Email:</td>
+                    <td><a href="mailto:info@reminisce.co.za">info@reminisce.co.za</a></td>
+                </tr>
+                <tr>
+                    <td>Support Email:</td>
+                    <td><a href="mailto:support@reminisce.co.za">support@reminisce.co.za</a></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>+27 (081) 456-7890</td>
+                </tr>
+                <tr>
+                    <td>Fax:</td>
+                    <td>+27 (081) 654-3210</td>
+                </tr>
+            </table>
+        </div>
     </section>
 </div>
 
