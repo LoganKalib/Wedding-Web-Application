@@ -11,66 +11,50 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('../Images/withoutwm2.jpg') no-repeat center center fixed;
+    background: url('../Images/beach-dark.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    overflow: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Container styling */
 .container {
+    display: flex;
     width: 100%;
-    flex: 1;
-    overflow: hidden; /* Hide scrollbars */
+    height: calc(100vh - 500px); /* Adjust height to leave space for the header and footer */
+    margin: 80px 80px 80px 0;
 }
 
-/* Section styling */
-section {
-    width: 100%;
-    min-height: 100vh;
+/* About Us title left*/
+.about-left {
+    flex: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-/* Content styling */
-.content {
-    padding: 120px 20px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h1 {
+.about-left h1 {
+    font-size: 100px;
     color: white;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 337;
-    font-style: normal;
-    text-shadow: 1px 1px 4px black;
-    text-align: center;
-    font-size: 50px;
-    margin-bottom: 50px;
+    text-shadow: 2px 2px 5px black;
+    position: absolute;
+    left: 20%;
 }
 
-p {
-    text-align: center;
-    color: rgb(80, 92, 167);
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 337;
-    font-style: normal;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.881); /* Light background with opacity */
-    border-radius: 5px;
-    margin: 0 20px;
+/* About us Right content */
+.about-right {
+    flex: 1;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px;
+    border-radius: 20px;
 }
 
-/* Hide scrollbars */
-body::-webkit-scrollbar {
-    display: none;
-}
-
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+.about-right p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
 }

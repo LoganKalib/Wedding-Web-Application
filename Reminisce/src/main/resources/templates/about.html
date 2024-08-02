@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reminisce | About Us</title>
     <!-- Linking to stylesheets -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar-style.css}">
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/about-style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/footer-style.css}">
+    <link rel="stylesheet" type="text/css" href="css/navbar-style.css">
+    <link rel="stylesheet" type="text/css" href="css/about-style.css">
+    <link rel="stylesheet" type="text/css" href="css/footer-style.css">
     <!-- Linking fonts and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
-    <link rel="icon" href="../Images/favicons/faviconx16.png" type="image/x-icon">
+    <link rel="icon" href="Images/favicons/faviconx16.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
 </head>
@@ -22,22 +22,24 @@
     <h2 class="logo">Reminisce</h2>
     <nav class="navbar">
         <a href="#" style="font-weight: bolder">About Us</a>
-        <a th:href="@{contact}">Contact Us</a>
-        <a th:href="@{/login/}">Login</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login</a>
     </nav>
 </header>
 
 <div class="container">
-    <section class="about">
+    <div class="about-left">
         <h1>ABOUT US</h1>
+    </div>
+    <section class="about-right">
         <p>
-            Welcome to Reminisce, your personalized platform for creating and cherishing memorable wedding experiences.
+            <strong style="text-align: center;">Welcome to Reminisce, your personalized platform for creating and cherishing memorable wedding experiences.</strong>
             <br><br>Dive into our digital haven, where organizing your dream wedding is as effortless as a gentle breeze.
             <br><br>With Reminisce, you can effortlessly organize every aspect of your special day, from event creation to guest management and beyond.
             Whether you're an event organizer crafting the perfect celebration or a guest eagerly anticipating the festivities, our intuitive interface ensures a seamless journey.
             <br><br>Explore our array of features, including RSVP management, menu customization, and photo gallery uploads, designed to capture and preserve every precious moment. Join us on Reminisce, where every detail matters and memories last a lifetime.
         </p>
-    </section>
+    </div>
 </div>
 
 <!-- Footer content -->
@@ -56,6 +58,6 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="../Login Page/login-script.js"></script>
+<script src="js/login-script.js"></script>
 </body>
 </html>
