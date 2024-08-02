@@ -20,7 +20,7 @@ body {
 .container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 600px); /* Adjust height to leave space for the header and footer */
+    height: calc(100vh - 650px); /* Adjust height to leave space for the header and footer */
     margin: 80px 120px 80px 0;
 }
 
@@ -57,7 +57,7 @@ body {
 .contact-right p1 {
     font-size: 1.2em;
     line-height: 1.6;
-    text-align: justify;
+    text-align: center;
 }
 
 .contact-details {
