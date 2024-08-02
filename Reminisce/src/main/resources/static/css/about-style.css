@@ -16,12 +16,12 @@ body {
     color: #fff;
 }
 
-/* Container styling */
+/* About Container styling */
 .container {
     display: flex;
     width: 100%;
     height: calc(100vh - 500px); /* Adjust height to leave space for the header and footer */
-    margin: 80px 80px 80px 0;
+    margin: 80px 120px 80px 0;
 }
 
 /* About Us title left*/
@@ -44,17 +44,25 @@ body {
 /* About us Right content */
 .about-right {
     flex: 1;
-    background-color: #fff;
+    background-color: #fefefe;
     color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px;
+    padding: 50px;
     border-radius: 20px;
 }
 
-.about-right p {
+.about-right p1 {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: justify;
 }
+
+.about-right p2 {
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 1.6;
+    text-align: center;
+}
+
