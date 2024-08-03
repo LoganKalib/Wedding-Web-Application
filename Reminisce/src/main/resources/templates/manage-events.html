@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminisce | Manage Event</title>
+    <!-- Linking to stylesheets -->
+    <link rel="stylesheet" th:href="@{/css/navbar-style.css}">
+    <link rel="stylesheet" th:href="@{/css/footer-style.css}">
+    <link rel="stylesheet" th:href="@{/css/manage-style.css}">
+
+    <!-- Linking fonts and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="icon" th:href="@{/Images/favicons/faviconx16.png}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,337;1,337&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+
+<body>
+<header>
+    <h2 class="logo">Reminisce</h2>
+    <nav class="navbar">
+        <a href="home">Home</a>
+        <a href="login">Sign Out</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <button onclick="loadContent('create-event')" data-section="create-event">Create Event</button>
+        <button onclick="loadContent('edit-event')" data-section="edit-event">Edit Event</button>
+        <button onclick="loadContent('view-rsvp')" data-section="view-rsvp">View RSVP</button>
+        <button onclick="loadContent('view-gallery')" data-section="view-gallery">View Gallery</button>
+    </div>
+
+    <div class="content" id="content">
+        <div id="create-event-content" class="content-section" style="display: none;">
+            <div class="create-event-container">
+                <h1 class="form-title">Couple Details</h1>
+                <form action="#">
+                    <!--Couple information-->
+                    <div class="main-user-info">
+                        <div class="user-input-box">
+                            <label>Bride's Name</label>
+                            <input type="text" id="bride-name" name="bride-name" placeholder="Enter bride's name" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Bride's Surname</label>
+                            <input type="text" id="bride-surname" name="bride-surname" placeholder="Enter bride's surname" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Groom's Name</label>
+                            <input type="text" id="groom-name" name="groom-name" placeholder="Enter groom's name" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Groom's Surname</label>
+                            <input type="text" id="groom-surname" name="groom-surname" placeholder="Enter groom's surname" required />
+                        </div>
+                    </div>
+
+                    <h1 class="form-title">Venue Details</h1>
+                    <div class="main-user-info">
+                        <div class="user-input-box">
+                            <label>Venue</label>
+                            <input type="text" id="venue-name" name="venue" placeholder="Enter venue name" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Venue Address</label>
+                            <input type="text" id="venue-address" name="venue-address" placeholder="Enter venue address" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Date</label>
+                            <input type="date" id="date" name="date" placeholder="Date" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Time (hr/min)</label>
+                            <input type="time" id="time" name="time" placeholder="Enter time" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Seating</label>
+                            <input type="text" id="seating" name="seating" placeholder="Number of tables" required />
+                        </div>
+                        <div class="user-input-box">
+                            <label>Primary Theme Color</label>
+                            <input type="color" id="color" name="color" placeholder="color 1" required />
+                        </div>
+                    </div>
+
+                    <!--                    <div id="map" style="height: 100px;"></div>-->
+
+                    <!-- MENU DETAILS -->
+                    <div class="menu-box">
+                        <h1 class="form-title">Menu</h1>
+                        <div class="menu-input">
+                            <div class="menu-input-box">
+                                <label for="course">Course</label>
+                                <select id="course" name="course">
+                                    <option value="none">None</option>
+                                    <option value="starter">Starter</option>
+                                    <option value="main">Main</option>
+                                    <option value="dessert">Dessert</option>
+                                    <option value="drink">Drink</option>
+                                </select>
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="food-item">Menu Item Name</label>
+                                <input type="text" name="food-item" id="food-item" placeholder="Item name">
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="diet">Select a Diet</label>
+                                <select id="diet" name="diet">
+                                    <option value="none">None</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="gluten-free">Gluten-Free</option>
+                                    <option value="lactose-free">Lactose-Free</option>
+                                    <option value="mocktail">Mocktail</option>
+                                    <option value="cocktail">Cocktail</option>
+                                    <option value="soda">Soda</option>
+                                    <option value="juice">Juice</option>
+                                </select>
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="ingredients">Ingredients</label>
+                                <input type="text" name="ingredients" id="ingredients" placeholder="Ingredients">
+                            </div>
+                            <div class="add-btn">
+                                <input type="submit" value="Add">
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="menu-display">Displayed Menu</label>
+                                <input type="text" name="menu-display" id="menu-display" placeholder="list of ingredients displayed (backend)" readonly>
+                            </div>
+                            <div class="add-btn">
+                                <input type="submit" value="Upload Menu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-box">
+                        <h1 class="form-title">Registry List</h1>
+                        <div class="menu-input">
+                            <div class="menu-input-box">
+                                <label for="item-name">Item</label>
+                                <input type="text" name="item-name" id="item-name" placeholder="Item name">
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="starter">Link</label>
+                                <input type="url" name="starter" id="starter" placeholder="Paste link to item">
+                            </div>
+                            <div class="menu-input-box">
+                                <label for="price">Price</label>
+                                <input type="text" name="price" id="price" placeholder="R:">
+                            </div>
+                        </div>
+                        <div class="form-submit-btn">
+                            <input type="submit" value="Add Item" id="btn-add-item">
+                        </div>
+                    </div>
+
+                    <div class="form-submit-btn">
+                        <input type="submit" value="Create Event">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--View RSVPs-->
+        <div id="view-rsvp-content" class="content-section" style="display: none;">
+            <h2 class="track-event-heading">Track RSVPs</h2>
+
+            <!-- Button for Barry & Vanessa -->
+            <button class="event-btn" onclick="showEventDetails('Barry & Vanessa')">Barry + Vanessa</button>
+
+            <!-- RSVP Modal for Barry & Vanessa -->
+            <div id="eventModalBarryVanessa" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="event-title">Barry & Vanessa</h2>
+                    <div id="event-details">
+                        <table>
+                            <tr>
+                                <th>Venue</th>
+                                <td>DIE Woud</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>2023-03-20</td>
+                            </tr>
+                            <tr>
+                                <th>Time</th>
+                                <td>16:00</td>
+                            </tr>
+                            <tr>
+                                <th>Venue Address</th>
+                                <td>4th Avenue, Bereaville Caledon, Cape Town</td>
+                            </tr>
+                            <tr>
+                                <th>Seating</th>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th>Wedding Color</th>
+                                <td style="background-color: goldenrod; color: #fefefe; text-align: center"><strong>Golden Rod</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script th:src="@{/js/manage-script.js}"></script>
+</body>
+
+</html>

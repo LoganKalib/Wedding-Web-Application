@@ -13,21 +13,19 @@ import za.ac.cput.reminisce.Models.RequestModels.registerModel;
 import za.ac.cput.reminisce.Services.CustomerService;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/")
 public class LoginRegisterController {
 
     private CustomerService customerService;
 
-    private HomePageController homePageController;
 
     @Autowired
-    public LoginRegisterController(CustomerService customerService, HomePageController homePageController) {
+    public LoginRegisterController(CustomerService customerService) {
         this.customerService = customerService;
-        this.homePageController = homePageController;
     }
 
 
-    @GetMapping("/page")
+    @GetMapping("/login")
     public String displayLogin(Model model){
         model.addAttribute("loginModel",new loginModel());
         model.addAttribute("registerModel", new registerModel());
@@ -50,11 +48,33 @@ public class LoginRegisterController {
 
         if(c1 != null){
             if(customerService.validateLogin(c1.getEmail(), c1.getPassword()) !=null){
-                model.addAttribute("loginModel",loginModel);
-                return homePageController.displayHome();
+                return this.displayHome(loginModel);
             }
         }
 
+        model.addAttribute("loginModel",new loginModel());
+        model.addAttribute("registerModel", new registerModel());
         return this.displayLogin(model);
+    }
+
+    @GetMapping("/contact")
+    public String displayContact(){
+        return "contact";
+    }
+    @GetMapping("/about")
+    public String displayAbout(){
+        return "about";
+    }
+
+    @GetMapping("/home")
+    public String displayHome(loginModel loginModel){
+        System.out.println(loginModel);
+        return "home";
+    }
+
+    @GetMapping("manageEvent")
+    public String displayManageEvent(loginModel loginModel){
+        System.out.println(loginModel);
+        return "manage-events";
     }
 }

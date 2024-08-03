@@ -1,0 +1,59 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+}
+
+.btn-container {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+
+.btn-home {
+    font-family: "Josefin Sans", sans-serif;
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #000;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #000;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.3s;
+}
+
+.btn-home a {
+    text-decoration: none;
+    color: #000;
+}
+
+.btn-home:hover {
+    width: 160px;
+    transition: 0.3s;
+}
+
+.container {
+    text-align: center;
+}
+
+.emoji img {
+    height: 100px;
+    width: 100px;
+}
+
+.content {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.content p {
+    font-size: 1.2em;
+}

@@ -1,7 +1,7 @@
-/*FOOTER CONTENT*/
+/* FOOTER CONTENT */
 footer {
-    background-color: #656470;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(32, 66, 86);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,10 +9,11 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-
+    z-index: 1000; /* Ensure footer is above other content */
 }
 
 .footer-text {
+    font-family: "Josefin Sans", sans-serif;
     font-size: 0.9em;
     padding-left: 20px;
 }
@@ -43,33 +44,28 @@ footer {
 .fa-facebook {
     background: #3B5998;
     color: white;
-    border-radius: 50%;
 }
 
 /* instagram icon */
 .fa-instagram {
     background: #c72867;
     color: white;
-    border-radius: 50%;
 }
 
 /* whatsapp icon */
 .fa-whatsapp {
     background: #12b037;
     color: white;
-    border-radius: 50%;
 }
 
 /* twitter icon */
 .fa-twitter {
     background: #55ACEE;
     color: white;
-    border-radius: 50%;
 }
 
 /* pinterest icon */
 .fa-pinterest {
     background: #cb2027;
     color: white;
-    border-radius: 50%;
 }
