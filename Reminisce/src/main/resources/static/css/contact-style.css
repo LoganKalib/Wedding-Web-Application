@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('../Images/beach-dark.jpg') no-repeat center center fixed;
+    background: url('../Images/forest.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
 }
@@ -20,12 +20,12 @@ body {
 .container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 500px); /* Adjust height to leave space for the header and footer */
+    height: calc(100vh - 650px); /* Adjust height to leave space for the header and footer */
     margin: 80px 120px 80px 0;
 }
 
-/* About Us title left*/
-.about-left {
+/* Contact Us title left */
+.contact-left {
     flex: 1;
     display: flex;
     align-items: center;
@@ -33,36 +33,55 @@ body {
     position: relative;
 }
 
-.about-left h1 {
+.contact-left h1 {
     font-size: 100px;
     color: white;
     text-shadow: 2px 2px 5px black;
     position: absolute;
-    left: 20%;
+    left: 15%;
 }
 
-/* About us Right content */
-.about-right {
+/* Contact Us Right content */
+.contact-right {
     flex: 1;
     background-color: #fefefe;
     color: #000;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 50px;
     border-radius: 20px;
 }
 
-.about-right p1 {
+.contact-right p1 {
     font-size: 1.2em;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-.about-right p2 {
-    font-weight: bold;
-    font-size: 1.3em;
     line-height: 1.6;
     text-align: center;
 }
 
+.contact-details {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*Table formatting*/
+.contact-details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact-details table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 1.1em;
+}
+
+.contact-details table td a {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-details table td a:hover {
+    text-decoration: underline;
+}
