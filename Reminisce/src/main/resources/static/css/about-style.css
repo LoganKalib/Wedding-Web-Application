@@ -1,11 +1,9 @@
-/* Basic reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
 body {
     font-family: 'Josefin Sans', sans-serif;
     display: flex;
@@ -19,50 +17,61 @@ body {
 /* About Container styling */
 .container {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: calc(100vh - 500px); /* Adjust height to leave space for the header and footer */
-    margin: 80px 120px 80px 0;
+    padding: 20px;
+    margin: auto;
 }
 
-/* About Us title left*/
+/* About Us title left */
 .about-left {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    margin-bottom: 20px;
 }
 
 .about-left h1 {
-    font-size: 100px;
+    font-size: 8vw;
     color: white;
     text-shadow: 2px 2px 5px black;
-    position: absolute;
-    left: 20%;
 }
 
 /* About us Right content */
 .about-right {
-    flex: 1;
-    background-color: #fefefe;
-    color: #000;
+    background-color: rgba(0, 0, 0, 0.39);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
     border-radius: 20px;
+    margin: 0 10px;
+    flex-grow: 1;
 }
 
-.about-right p1 {
+.about-right p {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: justify;
 }
 
-.about-right p2 {
-    font-weight: bold;
-    font-size: 1.3em;
-    line-height: 1.6;
-    text-align: center;
-}
+/* Responsive design solution */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        height: calc(100vh - 140px);
+    }
 
+    .about-left,
+    .about-right {
+        flex: 1;
+        margin: 0 80px;
+    }
+
+    .about-left h1 {
+        font-size: 5vw;
+        position: absolute;
+        left: 10%;
+    }
+}
