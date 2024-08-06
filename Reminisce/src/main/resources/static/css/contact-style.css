@@ -16,45 +16,42 @@ body {
     color: #fff;
 }
 
-/* About Container styling */
+/* Container styling */
 .container {
     display: flex;
-    width: 100%;
-    height: calc(100vh - 650px); /* Adjust height to leave space for the header and footer */
-    margin: 80px 120px 80px 0;
+    width: 90%;
+    height: calc(100vh - 650px);
+    margin: 80px 120px 80px 150px;
 }
 
 /* Contact Us title left */
 .contact-left {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    margin-bottom: 20px;
 }
 
 .contact-left h1 {
-    font-size: 100px;
+    font-size: 8vw;
     color: white;
     text-shadow: 2px 2px 5px black;
-    position: absolute;
-    left: 15%;
+    line-height: 1.2;
 }
 
 /* Contact Us Right content */
 .contact-right {
-    flex: 1;
-    background-color: #fefefe;
-    color: #000;
+    background-color: rgba(0, 0, 0, 0.39);
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
     border-radius: 20px;
 }
 
-.contact-right p1 {
+.contact-right p {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: center;
@@ -65,7 +62,7 @@ body {
     margin-top: 20px;
 }
 
-/*Table formatting*/
+/* Table formatting */
 .contact-details table {
     width: 100%;
     border-collapse: collapse;
@@ -78,10 +75,34 @@ body {
 }
 
 .contact-details table td a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
 .contact-details table td a:hover {
     text-decoration: underline;
+}
+
+/* Responsive design solution */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: 1;
+        margin: 0 20px;
+    }
+
+    .contact-left h1 {
+        font-size: 5vw;
+        left: 0;
+        text-align: center;
+    }
+
+    .contact-right {
+        flex: 2;
+    }
 }
