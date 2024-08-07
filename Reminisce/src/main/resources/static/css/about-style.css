@@ -18,9 +18,11 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    margin: 80px auto;
+    overflow: hidden;
 }
 
 /* About Us title left */
@@ -28,11 +30,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    flex: 1;
 }
 
 .about-left h1 {
-    font-size: 8vw;
+    font-size: 5vw; /* Responsive font size */
     color: white;
     text-shadow: 2px 2px 5px black;
 }
@@ -46,8 +48,9 @@ body {
     justify-content: center;
     padding: 20px;
     border-radius: 20px;
-    margin: 0 10px;
-    flex-grow: 1;
+    margin: 20px 0;
+    flex: 2;
+    overflow-y: auto;
 }
 
 .about-right p {
@@ -60,18 +63,21 @@ body {
 @media (min-width: 768px) {
     .container {
         flex-direction: row;
-        height: calc(100vh - 140px);
+        height: 70vh;
     }
 
     .about-left,
     .about-right {
-        flex: 1;
-        margin: 0 80px;
+        margin: 0 20px;
     }
 
     .about-left h1 {
-        font-size: 5vw;
+        font-size: 4vw;
         position: absolute;
         left: 10%;
+    }
+
+    .about-right p {
+        font-size: 1.1em;
     }
 }
