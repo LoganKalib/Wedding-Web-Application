@@ -14,14 +14,13 @@ public class Seating {
     @OneToOne
     @JoinColumn(name = "rsvp_id")
     private Rsvp rsvpId;
-    private int tableNo, seatNo;
+    private int tableNo;
 
     public Seating(){}
 
     private Seating(Builder builder){
         this.seatingId = builder.seatingId;
         this.rsvpId = builder.rsvpId;
-        this.seatNo = builder.seatNo;
         this.tableNo = builder.tableNo;
     }
 
@@ -37,21 +36,18 @@ public class Seating {
         return tableNo;
     }
 
-    public int getSeatNo() {
-        return seatNo;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Seating seating = (Seating) o;
-        return seatingId == seating.seatingId && tableNo == seating.tableNo && seatNo == seating.seatNo && Objects.equals(rsvpId, seating.rsvpId);
+        return seatingId == seating.seatingId && tableNo == seating.tableNo && Objects.equals(rsvpId, seating.rsvpId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(seatingId, rsvpId, tableNo, seatNo);
+        return Objects.hash(seatingId, rsvpId, tableNo);
     }
 
     @Override
@@ -60,7 +56,6 @@ public class Seating {
                 "seatingId=" + seatingId +
                 ", rsvpId=" + rsvpId +
                 ", tableNo=" + tableNo +
-                ", seatNo=" + seatNo +
                 '}';
     }
 
@@ -84,15 +79,9 @@ public class Seating {
             return this;
         }
 
-        public Builder setSeatNo(int seatNo) {
-            this.seatNo = seatNo;
-            return this;
-        }
-
         public Builder copy(Seating obj){
             this.seatingId = obj.seatingId;
             this.rsvpId = obj.rsvpId;
-            this.seatNo = obj.seatNo;
             this.tableNo = obj.tableNo;
             return this;
         }

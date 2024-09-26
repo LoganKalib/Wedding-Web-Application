@@ -8,32 +8,29 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class WeddingFactory {
-    public static Wedding buildWedding(Long eventId, Customer orgId, String venue, String title, String description, Date date, Time time, int tables, int seats){
-        if(BuilderUtil.isNullOrEmpty(eventId) && tables > 0 && seats > 0)
-            return new Wedding.Builder()
-                    .setEventId(eventId)
-                    .setOrgId(orgId)
-                    .setTitle(title)
-                    .setDescription(description)
-                    .setDate(date)
-                    .setStartTime(time)
-                    .setNoOfTables(tables)
-                    .setVenue(venue)
-                    .setNoOfSeats(seats).build();
+
+    public static Wedding buildWedding(long eventId, Customer orgId, String brideName,
+                                       String brideSurname, String groomName, String groomSurname,
+                                       String venueName, String venueAddress, String date,
+                                       String startTime, int noOfTables, String primaryColor){
+        if(eventId>0 && orgId!=null && BuilderUtil.isNullOrEmpty(brideName) && BuilderUtil.isNullOrEmpty(brideSurname)
+                && BuilderUtil.isNullOrEmpty(groomName)&& BuilderUtil.isNullOrEmpty(groomSurname) && BuilderUtil.isNullOrEmpty(venueName) && BuilderUtil.isNullOrEmpty(venueAddress) && BuilderUtil.isNullOrEmpty(primaryColor)){
+            return new Wedding.Builder().setEventId(eventId).setOrgId(orgId).setBrideName(brideName).setBrideSurname(brideSurname)
+                    .setVenueName(venueName).setVenueAddress(venueAddress).setDate(date).setPrimaryColor(primaryColor)
+                    .setStartTime(startTime).setNoOfTables(noOfTables).build();
+        }
         return null;
     }
-    public static Wedding buildWedding(Customer orgId, String venue, String title, String description, Date date, Time time, int tables, int seats){
-        if(tables > 0 && seats > 0)
-            return new Wedding.Builder()
-                    .setEventId(BuilderUtil.genId())
-                    .setVenue(venue)
-                    .setOrgId(orgId)
-                    .setTitle(title)
-                    .setDescription(description)
-                    .setDate(date)
-                    .setStartTime(time)
-                    .setNoOfTables(tables)
-                    .setNoOfSeats(seats).build();
+    public static Wedding buildWedding(Customer orgId, String brideName,
+                                       String brideSurname, String groomName, String groomSurname,
+                                       String venueName, String venueAddress, String date,
+                                       String startTime, int noOfTables, String primaryColor){
+        if(orgId!=null && BuilderUtil.isNullOrEmpty(brideName) && BuilderUtil.isNullOrEmpty(brideSurname)
+                && BuilderUtil.isNullOrEmpty(groomName)&& BuilderUtil.isNullOrEmpty(groomSurname) && BuilderUtil.isNullOrEmpty(venueName) && BuilderUtil.isNullOrEmpty(venueAddress) && BuilderUtil.isNullOrEmpty(primaryColor)){
+            return new Wedding.Builder().setOrgId(orgId).setBrideName(brideName).setBrideSurname(brideSurname).setGroomName(groomName).setGroomSurname(groomSurname)
+                    .setVenueName(venueName).setVenueAddress(venueAddress).setDate(date).setPrimaryColor(primaryColor)
+                    .setStartTime(startTime).setNoOfTables(noOfTables).build();
+        }
         return null;
     }
 }

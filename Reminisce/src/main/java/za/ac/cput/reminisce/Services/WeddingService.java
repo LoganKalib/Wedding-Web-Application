@@ -2,6 +2,7 @@ package za.ac.cput.reminisce.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.reminisce.Models.Customer;
 import za.ac.cput.reminisce.Models.Seating;
 import za.ac.cput.reminisce.Models.Wedding;
 import za.ac.cput.reminisce.Repository.IWeddingRepository;
@@ -41,5 +42,9 @@ public class WeddingService implements IService<Wedding,Long> {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Wedding findByOrgId(Customer id){
+        return weddingRepository.findByOrgId(id);
     }
 }

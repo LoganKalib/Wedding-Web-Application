@@ -9,35 +9,38 @@ import java.util.Objects;
 @Entity
 public class Wedding {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long eventId;
     @OneToOne
     @JoinColumn(name = "cust_id")
     private Customer orgId;
-    private String venue, title, description;
-    private Date date;
-    private Time startTime;
-    private int noOfTables, noOfSeats;
+
+    private String brideName, brideSurname, groomName, groomSurname;
+    private String venueName, venueAddress;
+    private String primaryColor;
+    private String date;
+    private String startTime;
+    private int noOfTables;
 
     public Wedding(){}
 
-    private Wedding(Builder builder){
-        this.eventId = builder.eventId;
-        this.orgId = builder.orgId;
-        this.venue = builder.venue;
-        this.date = builder.date;
-        this.startTime = builder.startTime;
-        this.noOfTables = builder.noOfTables;
-        this.noOfSeats = builder.noOfSeats;
-        this.title = builder.title;
-        this.description = builder.description;
+    public Wedding(Builder obj) {
+        this.eventId = obj.eventId;
+        this.orgId = obj.orgId;
+        this.brideName = obj.brideName;
+        this.brideSurname = obj.brideSurname;
+        this.groomName = obj.groomName;
+        this.groomSurname = obj.groomSurname;
+        this.venueName = obj.venueName;
+        this.venueAddress = obj.venueAddress;
+        this.date = obj.date;
+        this.startTime = obj.startTime;
+        this.primaryColor = obj.primaryColor;
+        this.noOfTables = obj.noOfTables;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
+    public String getPrimaryColor() {
+        return primaryColor;
     }
 
     public long getEventId() {
@@ -48,15 +51,35 @@ public class Wedding {
         return orgId;
     }
 
-    public String getVenue() {
-        return venue;
+    public String getBrideName() {
+        return brideName;
     }
 
-    public Date getDate() {
+    public String getBrideSurname() {
+        return brideSurname;
+    }
+
+    public String getGroomName() {
+        return groomName;
+    }
+
+    public String getGroomSurname() {
+        return groomSurname;
+    }
+
+    public String getVenueName() {
+        return venueName;
+    }
+
+    public String getVenueAddress() {
+        return venueAddress;
+    }
+
+    public String getDate() {
         return date;
     }
 
-    public Time getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
@@ -64,21 +87,17 @@ public class Wedding {
         return noOfTables;
     }
 
-    public int getNoOfSeats() {
-        return noOfSeats;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Wedding wedding = (Wedding) o;
-        return eventId == wedding.eventId && noOfTables == wedding.noOfTables && noOfSeats == wedding.noOfSeats && Objects.equals(orgId, wedding.orgId) && Objects.equals(venue, wedding.venue) && Objects.equals(title, wedding.title) && Objects.equals(description, wedding.description) && Objects.equals(date, wedding.date) && Objects.equals(startTime, wedding.startTime);
+        return eventId == wedding.eventId && noOfTables == wedding.noOfTables && Objects.equals(orgId, wedding.orgId) && Objects.equals(brideName, wedding.brideName) && Objects.equals(brideSurname, wedding.brideSurname) && Objects.equals(groomName, wedding.groomName) && Objects.equals(groomSurname, wedding.groomSurname) && Objects.equals(venueName, wedding.venueName) && Objects.equals(venueAddress, wedding.venueAddress) && Objects.equals(primaryColor, wedding.primaryColor) && Objects.equals(date, wedding.date) && Objects.equals(startTime, wedding.startTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, orgId, venue, title, description, date, startTime, noOfTables, noOfSeats);
+        return Objects.hash(eventId, orgId, brideName, brideSurname, groomName, groomSurname, venueName, venueAddress, primaryColor, date, startTime, noOfTables);
     }
 
     @Override
@@ -86,33 +105,29 @@ public class Wedding {
         return "Wedding{" +
                 "eventId=" + eventId +
                 ", orgId=" + orgId +
-                ", venue='" + venue + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                ", brideName='" + brideName + '\'' +
+                ", brideSurname='" + brideSurname + '\'' +
+                ", groomName='" + groomName + '\'' +
+                ", groomSurname='" + groomSurname + '\'' +
+                ", venueName='" + venueName + '\'' +
+                ", venueAddress='" + venueAddress + '\'' +
+                ", primaryColor='" + primaryColor + '\'' +
                 ", date=" + date +
                 ", startTime=" + startTime +
                 ", noOfTables=" + noOfTables +
-                ", noOfSeats=" + noOfSeats +
                 '}';
     }
 
     public static class Builder{
         private long eventId;
         private Customer orgId;
-        private String venue, title,description;
-        private Date date;
-        private Time startTime;
-        private int noOfTables, noOfSeats;
+        private String brideName, brideSurname, groomName, groomSurname;
+        private String venueName, venueAddress;
 
-        public Builder setTitle(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public Builder setDescription(String description) {
-            this.description = description;
-            return this;
-        }
+        private String primaryColor;
+        private String date;
+        private String startTime;
+        private int noOfTables;
 
         public Builder setEventId(long eventId) {
             this.eventId = eventId;
@@ -124,17 +139,47 @@ public class Wedding {
             return this;
         }
 
-        public Builder setVenue(String venue) {
-            this.venue = venue;
+        public Builder setBrideName(String brideName) {
+            this.brideName = brideName;
             return this;
         }
 
-        public Builder setDate(Date date) {
+        public Builder setBrideSurname(String brideSurname) {
+            this.brideSurname = brideSurname;
+            return this;
+        }
+
+        public Builder setGroomName(String groomName) {
+            this.groomName = groomName;
+            return this;
+        }
+
+        public Builder setGroomSurname(String groomSurname) {
+            this.groomSurname = groomSurname;
+            return this;
+        }
+
+        public Builder setPrimaryColor(String primaryColor) {
+            this.primaryColor = primaryColor;
+            return this;
+        }
+
+        public Builder setVenueName(String venueName) {
+            this.venueName = venueName;
+            return this;
+        }
+
+        public Builder setVenueAddress(String venueAddress) {
+            this.venueAddress = venueAddress;
+            return this;
+        }
+
+        public Builder setDate(String date) {
             this.date = date;
             return this;
         }
 
-        public Builder setStartTime(Time startTime) {
+        public Builder setStartTime(String startTime) {
             this.startTime = startTime;
             return this;
         }
@@ -144,22 +189,22 @@ public class Wedding {
             return this;
         }
 
-        public Builder setNoOfSeats(int noOfSeats) {
-            this.noOfSeats = noOfSeats;
-            return this;
-        }
         public Builder copy(Wedding obj){
             this.eventId = obj.eventId;
             this.orgId = obj.orgId;
-            this.venue = obj.venue;
+            this.brideName = obj.brideName;
+            this.brideSurname = obj.brideSurname;
+            this.groomName = obj.groomName;
+            this.groomSurname = obj.groomSurname;
+            this.venueName = obj.venueName;
+            this.venueAddress = obj.venueAddress;
             this.date = obj.date;
             this.startTime = obj.startTime;
             this.noOfTables = obj.noOfTables;
-            this.noOfSeats = obj.noOfSeats;
-            this.title = obj.title;
-            this.description = obj.description;
+            this.primaryColor = obj.primaryColor;
             return this;
         }
+
         public Wedding build(){
             return new Wedding(this);
         }
