@@ -69,18 +69,7 @@ function searchEvent() {
 // Function to simulate RSVP button click
 function rsvp() {
 
-    const email = localStorage.getItem('email')
-
-    // Replace the URL with your actual login API endpoint
-    fetch('http://localhost:8080/weddings/rsvp/' + email)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            localStorage.setItem('customerId', data.custId)
-        })
-        .catch(error => console.error('Error:', error));
-
+    //const email = localStorage.getItem('email');
 
     fetch('http://localhost:8080/weddings/rsvp', {
         method: 'POST',
