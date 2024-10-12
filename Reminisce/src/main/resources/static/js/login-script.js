@@ -22,3 +22,8 @@ btnPopup.addEventListener('click', ()=> {
 iconClose.addEventListener('click', ()=> {
     wrapper.classList.remove('active-popup');
 })
+
+document.getElementById('loginForm').addEventListener('submit', () => {
+    var email = document.getElementById('email2').value;
+    localStorage.setItem('email', email);
+})

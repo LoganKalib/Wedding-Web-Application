@@ -47,4 +47,9 @@ public class WeddingService implements IService<Wedding,Long> {
     public Wedding findByOrgId(Customer id){
         return weddingRepository.findByOrgId(id);
     }
+
+    public Wedding findById(Long id){
+        return weddingRepository.findById(id).orElseThrow(() -> new IllegalStateException("Wedding not found"));
+    }
+
 }
