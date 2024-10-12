@@ -8,4 +8,6 @@ import za.ac.cput.reminisce.Models.Customer;
 public interface ICustomerRepository extends CrudRepository<Customer, Long> {
 
     public Customer findByEmailAndPassword(String email, String password);
+
+    Customer findByEmail(String email);
 }

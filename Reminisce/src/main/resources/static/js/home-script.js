@@ -3,7 +3,6 @@
 var searchPopup = document.getElementById('searchPopup');
 var searchResultPopup = document.getElementById('searchResultPopup');
 var event;
-var cust;
 
 // Get the close buttons
 var closeButtons = document.getElementsByClassName('close');
@@ -48,7 +47,6 @@ function searchEvent() {
                 No of Tables: ${data.noOfTables}
             `;
             event = data.eventId;
-            cust = data.orgId.custId;
         })
         .catch(error => {
             alert('Event ID: ' + eventId + ' not found.');
@@ -71,6 +69,17 @@ function searchEvent() {
 // Function to simulate RSVP button click
 function rsvp() {
 
+    const email = localStorage.getItem('email')
+
+    // Replace the URL with your actual login API endpoint
+    fetch('http://localhost:8080/weddings/rsvp/' + email)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('customerId', data.custId)
+        })
+        .catch(error => console.error('Error:', error));
 
 
     fetch('http://localhost:8080/weddings/rsvp', {
@@ -79,7 +88,7 @@ function rsvp() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            custId: { custId: cust },
+            custId: { custId: localStorage.getItem('customerId')},
             eventId: { eventId: event }
         })
     })
@@ -88,7 +97,7 @@ function rsvp() {
             alert('RSVP Created');
         })
         .catch(error => {
-            alert(error);
+            alert("Unable to RSVP");
         });
     // Implement RSVP functionality here
     //alert('RSVP functionality goes here.');
