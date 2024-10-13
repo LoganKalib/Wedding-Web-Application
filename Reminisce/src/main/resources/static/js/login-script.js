@@ -24,16 +24,19 @@ iconClose.addEventListener('click', ()=> {
 })
 
 document.getElementById('loginForm').addEventListener('submit', () => {
+    //localStorage.removeItem('email')
+    //localStorage.removeItem('customerId')
+
     var email = document.getElementById('email2').value;
     localStorage.setItem('email', email);
     // localStorage.removeItem('customerId')
 
-    fetch('http://localhost:8080/weddings/rsvp/' + email)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            localStorage.setItem('customerId', data.custId)
-        })
-        .catch(error => console.error('Error:', error));
+    // fetch('http://localhost:8080/weddings/rsvp/' + email)
+    //     .then(response => {
+    //         return response.json();
+    //     })
+    //     .then(data => {
+    //         localStorage.setItem('customerId', data.custId)
+    //     })
+    //     .catch(error => console.error('Error:', error));
 })

@@ -52,6 +52,15 @@ function searchEvent() {
             alert('Event ID: ' + eventId + ' not found.');
         });
 
+    fetch('http://localhost:8080/weddings/rsvp/' + localStorage.getItem('email'))
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem('customerId', data.custId)
+        })
+        .catch(error => console.error('Error:', error));
+
     // // Simulate backend search (replace with actual backend logic)
     // var eventFound = true; // Replace with actual backend response
     //
