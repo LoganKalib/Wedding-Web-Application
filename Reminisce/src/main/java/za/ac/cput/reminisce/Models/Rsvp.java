@@ -1,15 +1,13 @@
 package za.ac.cput.reminisce.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
 public class Rsvp {
     @Id
+    @GeneratedValue
     private long rsvpId;
     @ManyToOne
     @JoinColumn(name = "customer_id")

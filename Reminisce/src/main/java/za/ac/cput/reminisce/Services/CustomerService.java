@@ -40,4 +40,8 @@ public class CustomerService implements IService<Customer, Long> {
     public Customer validateLogin(String email, String password){
         return customerRepository.findByEmailAndPassword(email, password);
     }
+
+    public Customer findByEmail(String email){
+        return customerRepository.findByEmail(email);
+    }
 }
