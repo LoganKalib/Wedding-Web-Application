@@ -38,7 +38,7 @@ function searchEvent() {
             searchResultPopup.style.display = 'block';
 
             document.getElementById('searchResult').innerText = `
-                Event ID: ${data.eventId} found.
+                Event ID: ${data.eventId}
                 Bride: ${data.brideName} ${data.brideSurname}
                 Groom: ${data.groomName} ${data.groomSurname}
                 Venue: ${data.venueName}, ${data.venueAddress}
