@@ -15,6 +15,14 @@ function showEventDetails(couple) {
     }
 }
 
+function showEventDetailss(couple) {
+    let modalId = couple === 'Sheldon & Shelby' ? 'eventModalSheldonShelby' : '';
+    if (modalId) {
+        let modal = document.getElementById(modalId);
+        modal.style.display = "block";
+    }
+}
+
 // Close the modal when the user clicks on <span> (x)
 window.onload = function() {
     const modals = document.getElementsByClassName('modal');

@@ -35,7 +35,8 @@
 
 <div class="container">
     <div class="sidebar" id="sidebar">
-        <button id="create-event-button" onclick="loadContent('create-event')" data-section="create-event">Create Event</button>        <button onclick="loadEditEvent()" data-section="edit-event">Edit Event</button>
+        <button id="create-event-button" onclick="loadContent('create-event')" data-section="create-event">Create Event</button>
+        <button onclick="loadEditEvent()" data-section="edit-event">Edit Event</button>
         <button onclick="loadContent('view-rsvp')" data-section="view-rsvp">View RSVP</button>
         <button onclick="loadContent('view-gallery')" data-section="view-gallery">View Gallery</button>
     </div>
@@ -53,6 +54,20 @@
             console.log("No Of Tables: " + document.getElementById("seating").value);
             console.log("Primary Color: " + document.getElementById("color").value);
         }
+
+        function logEditFormData() {
+            console.log("Edit Bride's Name: " + document.getElementById("edit-bride-name").value);
+            console.log("Edit Bride's Surname: " + document.getElementById("edit-bride-surname").value);
+            console.log("Edit Groom's Name: " + document.getElementById("edit-groom-name").value);
+            console.log("Edit Groom's Surname: " + document.getElementById("edit-groom-surname").value);
+            console.log("Edit Venue Name: " + document.getElementById("edit-venue-name").value);
+            console.log("Edit Venue Address: " + document.getElementById("edit-venue-address").value);
+            console.log("Edit Date: " + document.getElementById("edit-date").value);
+            console.log("Edit Start Time: " + document.getElementById("edit-time").value);
+            console.log("Edit No Of Tables: " + document.getElementById("edit-seating").value);
+            console.log("Edit Primary Color: " + document.getElementById("edit-color").value);
+        }
+
 
         function loadEditEvent() {
             fetch('/editEvent', { method: 'GET' })
@@ -73,6 +88,8 @@
                 })
                 .catch(error => console.error('Error fetching event data:', error));
         }
+
+
     </script>
 
     <div class="content" id="content">
@@ -207,13 +224,64 @@
             </div>
         </div>
 
-        <div id="edit-event-content" class="content-section" style="display: none;">
-            <p>Hello?</p>
+
+        <div id="edit-event-content" class="content-section create-event-container" style="display: none;">
+            <h1 class="form-title">Edit Couple Details</h1>
+            <form method="post" th:action="@{/editEvent}" th:object="${event}">
+                <!--Couple information-->
+                <div class="main-user-info">
+                    <div class="user-input-box">
+                        <label>Edit Bride's Name</label>
+                        <input type="text" id="edit-bride-name" th:field="*{brideName}" placeholder="Enter bride's name" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Bride's Surname</label>
+                        <input type="text" id="edit-bride-surname" th:field="*{brideSurname}" placeholder="Enter bride's surname" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Groom's Name</label>
+                        <input type="text" id="edit-groom-name" th:field="*{groomName}" placeholder="Enter groom's name" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Groom's Surname</label>
+                        <input type="text" id="edit-groom-surname" th:field="*{groomSurname}" placeholder="Enter groom's surname" required />
+                    </div>
+                </div>
+
+                <h1 class="form-title">Edit Venue Details</h1>
+                <div class="main-user-info">
+                    <div class="user-input-box">
+                        <label>Edit Venue</label>
+                        <input type="text" id="edit-venue-name" th:field="*{venueName}" placeholder="Enter venue name" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Venue Address</label>
+                        <input type="text" id="edit-venue-address" th:field="*{venueAddress}" placeholder="Enter venue address" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Date</label>
+                        <input type="date" id="edit-date" th:field="*{date}" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Time (hr/min)</label>
+                        <input type="time" id="edit-time" th:field="*{startTime}" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Seating</label>
+                        <input type="text" id="edit-seating" th:field="*{noOfTables}" placeholder="Number of tables" required />
+                    </div>
+                    <div class="user-input-box">
+                        <label>Edit Primary Theme Color</label>
+                        <input type="color" id="edit-color" th:field="*{primaryColor}" required />
+                    </div>
+                </div>
+
+                <div class="form-submit-btn">
+                    <button type="submit" onclick="logEditFormData()">Update Event</button>
+                </div>
+            </form>
         </div>
-
-
-
-        <!--View RSVPs-->
+        <!-- View RSVPs -->
         <div id="view-rsvp-content" class="content-section" style="display: none;">
             <h2 class="track-event-heading">Track RSVPs</h2>
 
@@ -255,12 +323,98 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Button for Sheldon & Shelby -->
+            <button class="event-btn" onclick="showEventDetailss('Sheldon & Shelby')">Sheldon + Shelby</button>
+
+            <!-- RSVP Modal for Sheldon & Shelby -->
+            <div id="eventModalSheldonShelby" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 class="event-title">Sheldon & Shelby</h2>
+                    <div class="event-details">
+                        <table>
+                            <tr>
+                                <th>Venue</th>
+                                <td>Rhodes Memorial</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>2024-10-14</td>
+                            </tr>
+                            <tr>
+                                <th>Time</th>
+                                <td>13:04</td>
+                            </tr>
+                            <tr>
+                                <th>Venue Address</th>
+                                <td>111 Address Lane, Cape Town</td>
+                            </tr>
+                            <tr>
+                                <th>Seating</th>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <th>Wedding Color</th>
+                                <td style="background-color: pink; color: #000; text-align: center"><strong>Rose</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- View Gallery -->
+        <div id="view-gallery-content" class="content-section" style="display: none;">
+            <h2 class="track-event-heading">View Gallery</h2>
+            <p>Explore the cherished moments captured during the celebration...</p>
+
+            <div class="gallery">
+                <img src="../Images/imga.jpg" alt="Gallery Image 1" class="gallery-image">
+                <img src="../Images/imgb.jpg" alt="Gallery Image 2" class="gallery-image">
+                <img src="../Images/imgc.jpg" alt="Gallery Image 3" class="gallery-image">
+                <img src="../Images/imgd.jpg" alt="Gallery Image 4" class="gallery-image">
+                <img src="../Images/imge.jpg" alt="Gallery Image 5" class="gallery-image">
+                <img src="../Images/imgf.jpg" alt="Gallery Image 6" class="gallery-image">
+                <img src="../Images/imgg.jpg" alt="Gallery Image 7" class="gallery-image">
+                <img src="../Images/imgh.jpg" alt="Gallery Image 8" class="gallery-image">
+                <img src="../Images/imgi.jpg" alt="Gallery Image 9" class="gallery-image">
+                <img src="../Images/imgj.jpg" alt="Gallery Image 10" class="gallery-image">
+                <img src="../Images/imgk.jpg" alt="Gallery Image 11" class="gallery-image">
+                <img src="../Images/imgl.jpg" alt="Gallery Image 12" class="gallery-image">
+                <img src="../Images/imgm.jpg" alt="Gallery Image 13" class="gallery-image">
+                <img src="../Images/imgn.jpg" alt="Gallery Image 14" class="gallery-image">
+                <img src="../Images/imgo.jpg" alt="Gallery Image 15" class="gallery-image">
+            </div>
+        </div>
+
+        <div class="enlarged" id="enlarged-image-container">
+            <img id="enlarged-image" src="" alt="Enlarged Image">
+        </div>
+
+
+
 
     </div>
 </div>
 
 <script th:src="@{/js/manage-script.js}"></script>
+<script>
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const enlargedImageContainer = document.getElementById('enlarged-image-container');
+    const enlargedImage = document.getElementById('enlarged-image');
+
+    galleryImages.forEach(image => {
+        image.addEventListener('click', () => {
+            enlargedImage.src = image.src;
+            enlargedImageContainer.style.display = 'block';
+        });
+    });
+
+    enlargedImageContainer.addEventListener('click', () => {
+        enlargedImageContainer.style.display = 'none';
+    });
+</script>
 </body>
 
 </html>
